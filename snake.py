@@ -18,16 +18,19 @@ food = vector(0, 0)
 
 snake = [vector(10, 0)]
 aim = vector(0, -10)
+#Se agrego una lista de colores
 colors = ['green','blue','yellow','orange','pink']
+#elige de forma aleatoria los valores
 num_al_body = random.randint(0, 4)
 num_al_food = random.randint(0, 4)
+#El valor esta en uso elige otro
 while num_al_body == num_al_food:
     num_al_body = random.randint(0, 4)
 
 food_limits = [vector(10, 0), vector(-10, 0), vector(0, 10), vector(0, -10)]
 
 def move_food():
-
+    # Randomizamos el movimiento de comida
     move_direction = choice(food_limits)
     next_position = food + move_direction
     
@@ -65,7 +68,7 @@ def move():
         snake.pop(0)
 
     clear()
-
+    #Usa el indice del valor para el color.
     for body in snake:
         square(body.x, body.y, 9, colors[num_al_body])
 
